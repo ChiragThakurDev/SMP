@@ -1,6 +1,10 @@
-#include<iostream>
+#include <iostream>
+#include "Student.h"
 
-int main(){
-    std::cout<<"Student Management System"<<std::endl;
+int main()
+{
+    Student student;
+    student.input();
+    student.display();
     return 0;
 }
