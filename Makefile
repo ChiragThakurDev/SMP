@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Iinclude
 
 # Source files
-SRC = src/main.cpp src/Student.cpp
+SRC = $(wildcard src/*.cpp)
 
 # Output executable
 TARGET = build/StudentManagementSystem
