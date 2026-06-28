@@ -1,32 +1,44 @@
 #include <iostream>
-#include "Student.h"
+#include "StudentManager.h"
 
-Student::Student()
+using namespace std;
+
+int main()
 {
-    id = 0;
-    age = 0;
-}
+    StudentManager manager;
+    int choice;
 
-void Student::input()
-{
-    std::cout << "Enter Student ID: ";
-    std::cin >> id;
-    std::cout << "Enter First Name: ";
-    std::cin >> firstName;
-    std::cout << "Enter Last Name: ";
-    std::cin >> lastName;
-    std::cout << "Enter Age: ";
-    std::cin >> age;
-    std::cout << "Enter Course: ";
-    std::cin >> course;
-}
+    do
+    {
+        cout << "\n=====================================\n";
+        cout << "     STUDENT MANAGEMENT SYSTEM\n";
+        cout << "=====================================\n";
+        cout << "1. Add Student\n";
+        cout << "2. Display Students\n";
+        cout << "3. Exit\n";
+        cout << "=====================================\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-void Student::display() const
-{
-    std::cout << "Student Details:" << std::endl;
-    std::cout << "ID: " << id << std::endl;
-    std::cout << "Name: " << firstName << " " << lastName << std::endl;
-    std::cout << "Age: " << age << std::endl;
-    std::cout << "Course: " << course << std::endl;
+        switch (choice)
+        {
+        case 1:
+            manager.addStudent();
+            break;
 
+        case 2:
+            manager.displayStudents();
+            break;
+
+        case 3:
+            cout << "\nThank you for using the Student Management System!\n";
+            break;
+
+        default:
+            cout << "\nInvalid choice! Please try again.\n";
+        }
+
+    } while (choice != 3);
+
+    return 0;
 }
