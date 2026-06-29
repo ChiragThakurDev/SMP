@@ -15,6 +15,12 @@ class Student{
 
     void input();
     void display() const;
+
+    int getId() const;
+    std::string getFirstName() const;
+    std::string getLastName() const;
+    int getAge() const;
+    std::string getCourse() const;
 };
 
 #endif

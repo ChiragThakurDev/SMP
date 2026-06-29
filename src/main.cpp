@@ -15,7 +15,8 @@ int main()
         cout << "=====================================\n";
         cout << "1. Add Student\n";
         cout << "2. Display Students\n";
-        cout << "3. Exit\n";
+        cout << "3. Search Student\n";
+        cout << "4. Exit\n";
         cout << "=====================================\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -31,6 +32,10 @@ int main()
             break;
 
         case 3:
+            manager.searchStudent();
+            break;
+
+        case 4:
             cout << "\nThank you for using the Student Management System!\n";
             break;
 
@@ -38,7 +43,7 @@ int main()
             cout << "\nInvalid choice! Please try again.\n";
         }
 
-    } while (choice != 3);
+    } while (choice != 4);
 
     return 0;
 }

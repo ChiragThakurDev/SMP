@@ -30,3 +30,23 @@ void Student::display() const
 
 }
 
+int Student::getId() const {
+    return id;
+}
+
+std::string Student::getFirstName() const {
+    return firstName;
+}
+
+std::string Student::getLastName() const {
+    return lastName;
+}
+
+int Student::getAge() const {
+    return age;
+}
+
+std::string Student::getCourse() const {
+    return course;
+}
+

@@ -11,7 +11,8 @@ class StudentManager {
     public:
         StudentManager();
         void addStudent();
-        void displayStudents() ;
+        void displayStudents();
+        void searchStudent();
 };
 
 #endif // STUDENTMANAGER_H

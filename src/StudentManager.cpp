@@ -23,3 +23,20 @@ void StudentManager::displayStudents(){
         std::cout << "---------------------\n";
     }
 }
+
+void StudentManager::searchStudent() {
+    int searchId;
+    std::cout << "Enter Student ID to search: ";
+    std::cin >> searchId;
+
+    for(const Student& student : students)
+    {
+     if(student.getId() == searchId)
+     {
+        std::cout << "Student found:\n";
+        student.display();
+        return;
+     }
+    }
+    std::cout << "Student with ID " << searchId << " not found.\n";
+}
