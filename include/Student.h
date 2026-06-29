@@ -21,6 +21,11 @@ class Student{
     std::string getLastName() const;
     int getAge() const;
     std::string getCourse() const;
+
+    void setFirstName(const std::string& firstName);
+    void setLastName(const std::string& lastName);
+    void setAge(int age);
+    void setCourse(const std::string& course);
 };
 
 #endif

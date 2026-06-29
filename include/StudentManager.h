@@ -13,6 +13,7 @@ class StudentManager {
         void addStudent();
         void displayStudents();
         void searchStudent();
+        void updateStudent();
 };
 
 #endif // STUDENTMANAGER_H

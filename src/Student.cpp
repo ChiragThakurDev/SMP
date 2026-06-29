@@ -50,3 +50,16 @@ std::string Student::getCourse() const {
     return course;
 }
 
+void Student::setFirstName(const std::string& firstName) {
+    this->firstName = firstName;
+}
+void Student::setLastName(const std::string& lastName) {
+    this->lastName = lastName;
+}
+void Student::setAge(int age) {
+    this->age = age;
+}
+void Student::setCourse(const std::string& course) {
+    this->course = course;
+}
+

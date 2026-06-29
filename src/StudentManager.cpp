@@ -40,3 +40,20 @@ void StudentManager::searchStudent() {
     }
     std::cout << "Student with ID " << searchId << " not found.\n";
 }
+void StudentManager::updateStudent() {
+    int searchId;
+    std::cout << "Enter Student ID to update: ";
+    std::cin >> searchId;
+
+    for(Student& student : students)
+    {
+        if(student.getId() == searchId)
+        {
+            std::cout << "Student found. Enter new details:\n";
+            student.input();
+            std::cout << "Student updated successfully!\n";
+            return;
+        }
+    }
+    std::cout << "Student with ID " << searchId << " not found.\n";
+}
