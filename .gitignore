@@ -4,3 +4,19 @@ build/
 *.o
 *.db
 Makefile
+
+# Build files
+build/
+*.o
+*.obj
+*.exe
+
+# Database
+database/*.db
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
