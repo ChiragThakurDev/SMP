@@ -3,11 +3,12 @@
 
 #include <vector>
 #include "Student.h"
-
+#include "Database.h"
 class StudentManager
 {
 private:
     std::vector<Student> students;
+    Database database;
 
 public:
     StudentManager();

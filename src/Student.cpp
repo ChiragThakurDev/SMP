@@ -6,6 +6,20 @@ Student::Student()
     age = 0;
 }
 
+Student::Student(
+    int id,
+    const std::string &firstName,
+    const std::string &lastName,
+    int age,
+    const std::string &course)
+{
+    this->id = id;
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->age = age;
+    this->course = course;
+}
+
 void Student::input()
 {
     std::cout << "Enter Student ID: ";
@@ -27,39 +41,51 @@ void Student::display() const
     std::cout << "Name: " << firstName << " " << lastName << std::endl;
     std::cout << "Age: " << age << std::endl;
     std::cout << "Course: " << course << std::endl;
-
 }
 
-int Student::getId() const {
+int Student::getId() const
+{
     return id;
 }
 
-std::string Student::getFirstName() const {
+std::string Student::getFirstName() const
+{
     return firstName;
 }
 
-std::string Student::getLastName() const {
+std::string Student::getLastName() const
+{
     return lastName;
 }
 
-int Student::getAge() const {
+int Student::getAge() const
+{
     return age;
 }
 
-std::string Student::getCourse() const {
+std::string Student::getCourse() const
+{
     return course;
 }
 
-void Student::setFirstName(const std::string& firstName) {
-    this->firstName = firstName;
-}
-void Student::setLastName(const std::string& lastName) {
-    this->lastName = lastName;
-}
-void Student::setAge(int age) {
-    this->age = age;
-}
-void Student::setCourse(const std::string& course) {
-    this->course = course;
+void Student::setId(int id)
+{
+    this->id = id;
 }
 
+void Student::setFirstName(const std::string &firstName)
+{
+    this->firstName = firstName;
+}
+void Student::setLastName(const std::string &lastName)
+{
+    this->lastName = lastName;
+}
+void Student::setAge(int age)
+{
+    this->age = age;
+}
+void Student::setCourse(const std::string &course)
+{
+    this->course = course;
+}

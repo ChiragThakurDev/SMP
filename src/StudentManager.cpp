@@ -1,83 +1,108 @@
 #include "StudentManager.h"
 #include <iostream>
+#include <string>
 
 StudentManager::StudentManager()
+    : database("database/student.db")
 {
-    // Constructor implementation
+    database.connect();
+
+    std::string createTable = R"(
+        CREATE TABLE IF NOT EXISTS students(
+            id INTEGER PRIMARY KEY,
+            first_name TEXT NOT NULL,
+            last_name TEXT NOT NULL,
+            age INTEGER,
+            course TEXT
+        );
+    )";
+
+    database.executeQuery(createTable);
 }
 void StudentManager::addStudent()
 {
     Student student;
 
     student.input();
-    students.push_back(student);
-    std::cout << "\n Student added successfully!\n";
+
+    if (database.addStudent(student))
+    {
+        std::cout << "\nStudent added successfully!\n";
+    }
+    else
+    {
+        std::cout << "\nFailed to add student!\n";
+    }
 }
 
 void StudentManager::displayStudents()
 {
-    if (students.empty())
-    {
-        std::cout << "No students to display.\n";
-        return;
-    }
-    for (const Student &student : students)
-    {
-        student.display();
-        std::cout << "---------------------\n";
-    }
+    database.displayStudents();
 }
 
 void StudentManager::searchStudent()
 {
-    int searchId;
-    std::cout << "Enter Student ID to search: ";
-    std::cin >> searchId;
+    int id;
 
-    for (const Student &student : students)
-    {
-        if (student.getId() == searchId)
-        {
-            std::cout << "Student found:\n";
-            student.display();
-            return;
-        }
-    }
-    std::cout << "Student with ID " << searchId << " not found.\n";
+    std::cout << "Enter Student ID to search: ";
+    std::cin >> id;
+
+    database.searchStudent(id);
 }
+
 void StudentManager::updateStudent()
 {
-    int updateId;
+    Student student;
+
+    int id;
+    std::string firstName;
+    std::string lastName;
+    int age;
+    std::string course;
+
     std::cout << "Enter Student ID to update: ";
-    std::cin >> updateId;
+    std::cin >> id;
 
-    for (Student &student : students)
+    std::cout << "Enter New First Name: ";
+    std::cin >> firstName;
+
+    std::cout << "Enter New Last Name: ";
+    std::cin >> lastName;
+
+    std::cout << "Enter New Age: ";
+    std::cin >> age;
+
+    std::cout << "Enter New Course: ";
+    std::cin >> course;
+
+    student.setId(id);
+    student.setFirstName(firstName);
+    student.setLastName(lastName);
+    student.setAge(age);
+    student.setCourse(course);
+
+    if (database.updateStudent(student))
     {
-        if (student.getId() == updateId)
-        {
-            std::cout << "Student found. Enter new details:\n";
-            student.input();
-            std::cout << "Student updated successfully!\n";
-            return;
-        }
+        std::cout << "\nStudent updated successfully!\n";
     }
-    std::cout << "Student with ID " << updateId << " not found.\n";
+    else
+    {
+        std::cout << "\nFailed to update student!\n";
+    }
 }
-
 void StudentManager::deleteStudent()
 {
-    int deleteId;
-    std::cout << "Enter Student ID to delete: ";
-    std::cin >> deleteId;
+    int id;
 
-    for (auto it = students.begin(); it != students.end(); ++it)
+    std::cout << "Enter Student ID to delete: ";
+    std::cin >> id;
+
+    if (database.deleteStudent(id))
     {
-        if (it->getId() == deleteId)
-        {
-            students.erase(it);
-            std::cout << "Student with ID " << deleteId << " deleted successfully.\n";
-            return;
-        }
+        std::cout << "\nStudent deleted successfully!\n";
     }
-    std::cout << "Student with ID " << deleteId << " not found.\n";
+    else
+    {
+        std::cout << "\nFailed to delete student!\n";
+    }
 }
